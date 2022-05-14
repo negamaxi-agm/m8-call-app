@@ -2,16 +2,22 @@
   "name": "m8-call-app",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://negamaxi-agm.github.io/m8-call-app",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
