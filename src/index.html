@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Главное приложение</title>
+    <script type="module">
+        let newWindow;
+
+
+        window.callUser = function() {
+            const url = new URL('./call-app.html', import.meta.url);
+
+            const userId = document.getElementById('userIdInput').value;
+
+            url.searchParams = new URLSearchParams()
+
+            url.searchParams.append('userId', userId);
+
+            newWindow = window.open(url, 'Call app', 'popup')
+
+        }
+
+        window.sendMessageToUser = function() {
+            const messageText = document.getElementById('messageInput').value;
+
+            const event = new CustomEvent('message', { detail: messageText });
+
+            newWindow.dispatchEvent(event)
+        }
+
+        window.applyNextWindowDimensions = function() {
+            const width = document.getElementById('windowWidthInput').value;
+            const height = document.getElementById('windowHeightInput').value;
+
+            newWindow.resizeTo(width, height)
+        }
+    </script>
+  </head>
+  <body>
+    <h1>Главное приложение</h1>
+    <fieldset>
+        <legend>
+            Передача параметров в адресной строке
+        </legend>
+        <input type="number" id="userIdInput" placeholder="ID пользователя" />
+        <button onclick="callUser()">Позвонить пользователю</button>
+    </fieldset>
+    <br />
+    <br />
+    <fieldset>
+        <legend>
+            Передача сообщений в открытое окно
+        </legend>
+        <input type="text" id="messageInput" placeholder="Сообщение" />
+        <button onclick="sendMessageToUser()">Отправить сообщение</button>
+    </fieldset>
+    <br />
+    <br />
+    <fieldset>
+        <legend>
+            Изменение размеров открытого окна
+        </legend>
+        <input type="number" id="windowWidthInput" placeholder="Ширина" />
+        <input type="number" id="windowHeightInput" placeholder="Высота" />
+        <button onclick="applyNextWindowDimensions()">Применить</button>
+    </fieldset>
+  </body>
+</html>

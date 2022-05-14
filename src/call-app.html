@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Звонилка</title>
+  </head>
+  <body>
+    <h1>Звонилка</h1>
+    <p>ID пользователя: <span id="userId"></span></p>
+    <p>Последнее сообщение: <span id="message"></span></p>
+    <script>
+        const searchParams = new URLSearchParams(window.location.search)
+
+        const userId = searchParams.get('userId')
+
+        document.getElementById('userId').innerHTML = `${userId}`;
+
+        addEventListener('message', (event) => {
+            const messageElement = document.getElementById('message');
+
+            messageElement.innerHTML = event.detail;
+        })
+    </script>
+  </body>
+</html>
