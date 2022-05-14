@@ -4,6 +4,7 @@
   "description": "",
   "publicUrl": "/m8-call-app",
   "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
