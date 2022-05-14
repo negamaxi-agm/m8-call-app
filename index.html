@@ -12,8 +12,6 @@
 
             const userId = document.getElementById('userIdInput').value;
 
-            url.searchParams = new URLSearchParams()
-
             url.searchParams.append('userId', userId);
 
             newWindow = window.open(url, 'Call app', 'popup')
