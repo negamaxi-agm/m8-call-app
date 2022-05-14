@@ -2,7 +2,7 @@
   "name": "m8-call-app",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://negamaxi-agm.github.io/m8-call-app",
+  "publicUrl": "/m8-call-app",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
